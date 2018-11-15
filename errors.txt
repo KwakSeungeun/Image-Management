@@ -12,3 +12,4 @@ invalid JPEG format: short Huffman data
 [InitCopyData2]<1541732566>: invalid JPEG format: short Huffman data
 [InitCopyData1]<1541741475>: image: unknown format
 [InitCopyData3]<1541742547>: invalid JPEG format: short Huffman data
+[Stat]<1542250941>: stat /Volumes/TriveStorage/support_vector_machine/machine_learning_recipes/tf_files/flower_photos/1998_toyota_4runner_4wd/../trash_data/: no such file or directory

@@ -2,6 +2,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"image"
 	"image/color"
@@ -33,6 +34,7 @@ const (
 	cropSizeUnit = 100
 	brightUnit   = 10
 	contrastUnit = 15
+	josephDir    = "/Volumes/TriveStorage/support_vector_machine/machine_learning_recipes/tf_files/flower_photos"
 )
 
 var imgNames []string
@@ -193,6 +195,8 @@ func writeErr(f *os.File, myErr error, tag string, fatal bool) {
 }
 
 func main() {
+	dirPtr := flag.Bool("jo", false, "Indicates whether or not this is Joseph's directory")
+	flag.Parse()
 
 	// Open (and create if necessary) a simple text file to hold all errors
 	// os.OpenFile(name, os.O_RDONLY|os.O_CREATE, 0666)
@@ -205,6 +209,11 @@ func main() {
 	var imgDir string
 	fmt.Println("Input imgDir directory : ")
 	fmt.Scanln(&imgDir)
+
+	if *dirPtr {
+		imgDir = path.Join(josephDir, imgDir)
+	}
+
 	err = os.RemoveAll(path.Join(imgDir, ".DS_Store"))
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
